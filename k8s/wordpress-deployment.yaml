@@ -34,8 +34,8 @@ spec:
               value: wordpress
             - name: WORDPRESS_DB_USER
               value: wordpress
-          image: wordpress:latest
-          name: wordpress
+          image: vladsanyuk/ssdevopscc:custom-wordpress
+          name: vlad-sanyuk-wordpress
           ports:
             - containerPort: 80
           resources: {}
