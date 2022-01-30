@@ -25,7 +25,11 @@ spec:
         io.kompose.service: db
     spec:
       containers:
-        - env:
+        - name: db
+          image: mysql:5.7
+          ports:
+            - containerPort: 3306
+          env:
             - name: MYSQL_DATABASE
               value: wordpress
             - name: MYSQL_PASSWORD
@@ -34,17 +38,4 @@ spec:
               value: somewordpress
             - name: MYSQL_USER
               value: wordpress
-          image: mysql:5.7
-          name: db
-          ports:
-            - containerPort: 3306
-          resources: {}
-          volumeMounts:
-            - mountPath: /var/lib/mysql
-              name: db-data
       restartPolicy: Always
-      volumes:
-        - name: db-data
-          persistentVolumeClaim:
-            claimName: db-data
-status: {}
