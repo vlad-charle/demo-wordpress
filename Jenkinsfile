@@ -1,5 +1,4 @@
 pipeline {
-
   environment {
           AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
           AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
@@ -8,7 +7,6 @@ pipeline {
   agent any
 
   stages {
-
     stage('Build image') {
       steps{
         script {
@@ -16,7 +14,6 @@ pipeline {
         }
       }
     }
-
     stage('Push Image') {
       steps{
         script {
@@ -26,15 +23,12 @@ pipeline {
         }
       }
     }
-
     stage('Deploy App') {
       steps {
-
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'kubectl apply -f k8s'
         }
       }
     }
-
   }
 }
