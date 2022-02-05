@@ -29,11 +29,20 @@ spec:
             - name: WORDPRESS_DB_HOST
               value: db
             - name: WORDPRESS_DB_NAME
-              value: wordpress
+              valueFrom: 
+                secretKeyRef:
+                  name: wordpress-secret
+                  key: mysql-db
             - name: WORDPRESS_DB_PASSWORD
-              value: wordpress
+              valueFrom: 
+                secretKeyRef:
+                  name: wordpress-secret
+                  key: mysql-password
             - name: WORDPRESS_DB_USER
-              value: wordpress
+              valueFrom: 
+                secretKeyRef:
+                  name: wordpress-secret
+                  key: mysql-username
           image: vladsanyuk/ssdevopscc:custom-wordpress
           name: vlad-sanyuk-wordpress
           ports:
@@ -48,3 +57,24 @@ spec:
           persistentVolumeClaim:
             claimName: wordpress-data
 status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.1 (a9d05d509)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: wordpress
+  name: wordpress
+spec:
+  ports:
+    - name: "8000"
+      port: 8000
+      targetPort: 80
+  type: LoadBalancer
+  selector:
+    io.kompose.service: wordpress
+status:
+  loadBalancer: {}
