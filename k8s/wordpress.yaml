@@ -27,7 +27,10 @@ spec:
       containers:
         - env:
             - name: WORDPRESS_DB_HOST
-              value: db
+              valueFrom: 
+                secretKeyRef:
+                  name: wordpress-secret
+                  key: mysql-host
             - name: WORDPRESS_DB_NAME
               valueFrom: 
                 secretKeyRef:

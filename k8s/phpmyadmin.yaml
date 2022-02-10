@@ -31,7 +31,10 @@ spec:
                   name: wordpress-secret
                   key: mysql-root-password
             - name: PMA_HOST
-              value: db
+              valueFrom: 
+                secretKeyRef:
+                  name: wordpress-secret
+                  key: mysql-host
           image: phpmyadmin/phpmyadmin
           name: phpmyadmin
           ports:
