@@ -47,6 +47,7 @@ pipeline {
     stage('Deploy App') {
       steps {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+            sh 'kubectl apply -f /var/jenkins_home/secret.yaml'
             sh 'kubectl apply -f k8s'
         }
       }
