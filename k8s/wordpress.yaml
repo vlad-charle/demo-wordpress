@@ -50,15 +50,7 @@ spec:
           name: vlad-sanyuk-wordpress
           ports:
             - containerPort: 80
-          resources: {}
-          volumeMounts:
-            - mountPath: /var/www/html
-              name: wordpress-data
       restartPolicy: Always
-      volumes:
-        - name: wordpress-data
-          persistentVolumeClaim:
-            claimName: wordpress-data
 status: {}
 ---
 apiVersion: v1
