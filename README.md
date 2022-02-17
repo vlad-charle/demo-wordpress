@@ -1,10 +1,10 @@
-#demo-wordpress-app
+# demo-wordpress-app
 
-##Project description
+## Project description
 
 This repo contains Wordpress application deployment for my demo project at SoftServe DevOps Crash Course 2021. 
 
-##Project pre-requisites
+## Project pre-requisites
 
 Jenkins with installed Docker, kubectl, Helm, AWS CLI, AWS Authenticator, Terraform. I used latest Jenkins Docker image and installed all required packages: https://hub.docker.com/r/jenkins/jenkins
 
@@ -14,7 +14,7 @@ Rancher. I use standard test-purpose container installation: https://rancher.com
 
 Slack: https://slack.com
 
-##Project structure
+## Project structure
 
 k8s folder contains manifests files, that is used by Jenkins to deploy the app.
 
@@ -32,4 +32,5 @@ Jenkinsfile contains pipeline with a following stages:
 5. Push image to the registry
 6. Deploy application to the cluster
 7. Send notification to respective Slack channel
+
 The pipeline is triggered automatically by code change, via webhook from GitHub to Jenkins.
