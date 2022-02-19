@@ -35,4 +35,4 @@ Jenkinsfile contains pipeline with a following stages:
 
 The pipeline is triggered automatically by code change, via webhook from GitHub to Jenkins.
 
-code change test
+code change test 2
