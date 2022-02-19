@@ -34,3 +34,5 @@ Jenkinsfile contains pipeline with a following stages:
 7. Send notification to respective Slack channel
 
 The pipeline is triggered automatically by code change, via webhook from GitHub to Jenkins.
+
+code change test
