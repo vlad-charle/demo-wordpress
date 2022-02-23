@@ -10,7 +10,9 @@ Jenkins with installed Docker, kubectl, Helm, AWS CLI, AWS Authenticator, Terraf
 
 SonarQube. I use standard container installation with docker-compose: https://docs.sonarqube.org/latest/setup/install-server/
 
-Rancher. I use standard test-purpose container installation: https://rancher.com/docs/rancher/v2.5/en/installation/other-installation-methods/single-node-docker/
+Rancher. I use standard EKS deployment with Helm, Rancher has dedicated ELB and deployed across 2 nodes:
+https://rancher.com/docs/rancher/v2.5/en/installation/install-rancher-on-k8s/amazon-eks/#5-install-an-ingress
+https://rancher.com/docs/rancher/v2.5/en/installation/install-rancher-on-k8s/#install-the-rancher-helm-chart
 
 Slack: https://slack.com
 
